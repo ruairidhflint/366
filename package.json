@@ -9,7 +9,6 @@
   "author": "Rory Flint",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^2.10.0",
-    "watchify": "^3.11.1"
+    "date-fns": "^2.10.0"
   }
 }

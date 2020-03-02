@@ -102,7 +102,8 @@ h3::selection {
     width: 100%;
     color: #b1b1b1;
     display: flex;
-    justify-content: flex-end;;
+    justify-content: flex-end;
+    ;
 }
 
 h6 {
@@ -111,6 +112,24 @@ h6 {
     cursor: pointer;
 }
 
-h6:hover{
+h6:hover {
     color: #cc8521;
+}
+
+.popup-bar {
+    width: 100vw;
+    height: 0px;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+}
+
+.height {
+    height: 4vh;
+    transition: height 0.3s ease-in-out;
 }

@@ -17616,31 +17616,15 @@ function toDate(argument) {
 
 module.exports = exports.default;
 },{"../_lib/requiredArgs/index.js":14}],226:[function(require,module,exports){
-/*
-MVP:
-Check current date.
-
-Check localstorage to see if there is a quote stored that matches today's date.
-If localstorage and date matches, use localstorage to populate the DOM.
-
-If localstorage and date mismatched OR no localstorage, make API call using
-today's date. Save to local storage. 
-
-Also, check the length of the quote. If it exceeds n length (yet to be decided),
-alter the text size of the quote itself to stop any kind of scrolling. 1
-*/
 const datefns = require('date-fns');
-
 const quote = document.querySelector('h1');
 const author = document.querySelector('h3');
-
+const today = new Date();
+const dayOfYear = datefns.getDayOfYear(today);
 const errorQuote = {
   quote: 'Find what you love and let it kill you.',
   author: 'Charles Bukowski',
 };
-
-const today = new Date();
-const dayOfYear = datefns.getDayOfYear(today);
 
 if (window.localStorage.getItem('dailyquote')) {
   const dailyQuote = JSON.parse(window.localStorage.getItem('dailyquote'));
@@ -17658,7 +17642,11 @@ function fetchData() {
     .then(res => res.json())
     .then(res => {
       setTextToDom(res);
-      const localStorageData = JSON.stringify({date: dayOfYear, quote: res.quote, author: res.author})
+      const localStorageData = JSON.stringify({
+        date: dayOfYear,
+        quote: res.quote,
+        author: res.author,
+      });
       window.localStorage.setItem('dailyquote', localStorageData);
     })
     .catch(error => {

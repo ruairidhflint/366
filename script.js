@@ -1,5 +1,4 @@
 /*
-
 MVP:
 Check current date.
 
@@ -10,8 +9,7 @@ If localstorage and date mismatched OR no localstorage, make API call using
 today's date. Save to local storage. 
 
 Also, check the length of the quote. If it exceeds n length (yet to be decided),
-alter the text size of the quote itself to stop any kind of scrolling. 
-
+alter the text size of the quote itself to stop any kind of scrolling. 1
 */
 
 

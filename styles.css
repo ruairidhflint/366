@@ -65,3 +65,27 @@ body {
     background-color: #121212;
 }
 
+.container {
+    width: 95%;
+    color: #b1b1b1
+}
+
+h1 {
+    font-size: 8vw;
+    font-family: 'Playfair Display';
+    line-height: 9vw;
+}
+
+h1::selection {
+    color: #cc8521;
+}
+
+h3 {
+    font-size: 3.5vw;
+    font-family: 'Playfair Display';
+    margin-top: 2rem;
+}
+
+h3::selection {
+    color: #cc8521;
+}

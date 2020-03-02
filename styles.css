@@ -89,3 +89,8 @@ h3 {
 h3::selection {
     color: #cc8521;
 }
+
+.reduced {
+    font-size: 6.7vw;
+    line-height: 7.2vw;
+}

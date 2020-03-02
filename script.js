@@ -24,15 +24,30 @@ const errorQuote = {
 const today = new Date();
 const dayOfYear = datefns.getDayOfYear(today);
 
-fetch(`https://threesixsixquotes.herokuapp.com/quotes/${dayOfYear}`)
-  .then(res => res.json())
-  .then(res => {
-    setTextToDom(res);
-  })
-  .catch(error => {
-    console.log(error);
-    setTextToDom(errorQuote);
-  });
+if (window.localStorage.getItem('dailyquote')) {
+  const dailyQuote = JSON.parse(window.localStorage.getItem('dailyquote'));
+  if (dailyQuote.date == dayOfYear) {
+    setTextToDom(dailyQuote);
+  } else {
+    fetchData();
+  }
+} else {
+  fetchData();
+}
+
+function fetchData() {
+  fetch(`https://threesixsixquotes.herokuapp.com/quotes/${dayOfYear}`)
+    .then(res => res.json())
+    .then(res => {
+      setTextToDom(res);
+      const localStorageData = JSON.stringify({date: dayOfYear, quote: res.quote, author: res.author})
+      window.localStorage.setItem('dailyquote', localStorageData);
+    })
+    .catch(error => {
+      console.log(error);
+      setTextToDom(errorQuote);
+    });
+}
 
 function setTextToDom(content) {
   const quoteText = content.quote;
@@ -44,6 +59,7 @@ function setTextToDom(content) {
   quote.textContent = quoteText;
   author.textContent = authorText;
 }
+
 /*
 STRETCH:
 Implement small and subtle slide in menu to adjust theme, see github source/credit and be able to tweet the quote of the day. 

@@ -54,17 +54,19 @@ Implement small and subtle slide in menu to adjust theme, see github source/cred
 */
 
 const button = document.querySelector('h6');
-const menuBar = document.querySelector('.popup-bar')
+const menuBar = document.querySelector('.popup-bar');
 const container = document.querySelector('.container');
 
 button.addEventListener('click', openMenu);
 container.addEventListener('click', closeMenu);
 
-
-function openMenu(){
-    menuBar.classList.add('height');
+function openMenu() {
+  menuBar.classList.add('height');
 }
 
-function closeMenu(){
-    menuBar.classList.remove('height')
+function closeMenu() {
+  menuBar.classList.remove('height');
 }
+
+/* Twitter Stuff */
+

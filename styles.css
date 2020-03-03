@@ -64,7 +64,7 @@ body {
 
 .container {
     width: 95%;
-    height: 96vh;
+    height: 95vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -98,7 +98,7 @@ h3::selection {
 }
 
 .menu-button {
-    height: 4vh;
+    height: 5vh;
     width: 100%;
     color: #b1b1b1;
     display: flex;
@@ -120,16 +120,16 @@ h6:hover {
     width: 100vw;
     height: 0px;
     overflow: hidden;
-    background: white;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;;
+    background: white;
     transition: height 0.3s ease-in-out;
     position: absolute;
     bottom: 0;
 }
 
 .height {
-    height: 4vh;
+    height: 5vh;
     transition: height 0.3s ease-in-out;
 }

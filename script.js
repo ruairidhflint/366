@@ -70,3 +70,11 @@ function closeMenu() {
 
 /* Twitter Stuff */
 
+const twitterLink = document.querySelector('#twitter-link');
+
+const tweetableQuote =
+  quote.textContent.replace(/ /g, '%20') +
+  ' - ' +
+  author.textContent.replace(/ /g, '%20');
+
+twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetableQuote}`;

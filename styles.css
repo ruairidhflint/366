@@ -121,8 +121,8 @@ h6:hover {
     height: 0px;
     overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;;
+    justify-content: space-between;
+    align-items: center;
     background: white;
     transition: height 0.3s ease-in-out;
     position: absolute;
@@ -134,3 +134,70 @@ h6:hover {
     transition: height 0.3s ease-in-out;
 }
 
+#twitter-link {
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #121212;
+    transition: color 0.2s ease-in-out;
+    font-family: 'Quicksand';
+}
+
+#twitter-link:hover {
+    color: #cc8521;
+    transition: color 0.2s ease-in-out;
+}
+
+.img-cont {
+    width: 2rem;
+    margin-right: 0.5rem;
+}
+
+.img-cont img {
+    width: 100%;
+    max-height: auto;
+}
+
+.credit {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 120px;
+}
+
+.blank {
+    height: 100%;
+    width: 120px;
+}
+
+@media(max-width: 500px){
+    .blank {
+        display: none;
+    }
+    #twitter-link {
+        margin-left: 2rem;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Quicksand';
+}
+
+.social-cont {
+    width: 1.5rem;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.credit a:hover {
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.social-cont img {
+    width: 100%;
+    max-height: auto;
+}

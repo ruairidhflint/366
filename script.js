@@ -48,10 +48,8 @@ function setTextToDom(content) {
   author.textContent = authorText;
 }
 
-/*
-STRETCH:
-Implement small and subtle slide in menu to adjust theme, see github source/credit and be able to tweet the quote of the day. 
-*/
+
+/* Pop Up Bar Functionality */
 
 const button = document.querySelector('h6');
 const menuBar = document.querySelector('.popup-bar');
@@ -68,7 +66,7 @@ function closeMenu() {
   menuBar.classList.remove('height');
 }
 
-/* Twitter Stuff */
+/* Twitter */
 
 const twitterLink = document.querySelector('#twitter-link');
 

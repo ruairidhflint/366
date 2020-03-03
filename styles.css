@@ -97,6 +97,17 @@ h3::selection {
     line-height: 7vw;
 }
 
+@media(max-width: 470px) {
+    .reduced {
+        font-size: 10vw;
+        line-height: 11vw;
+    }
+
+    h3 {
+        font-size: 4vw;
+    }
+}
+
 .menu-button {
     height: 5vh;
     width: 100%;
@@ -172,7 +183,7 @@ h6:hover {
     width: 120px;
 }
 
-@media(max-width: 500px){
+@media(max-width: 500px) {
     .blank {
         display: none;
     }

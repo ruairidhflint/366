@@ -17664,7 +17664,7 @@ function setTextToDom(content) {
   if (quoteText.length > 93) {
     quote.classList.toggle('reduced');
   }
-  spinner.style.display = 'none'
+  spinner.style.display = 'none';
   quote.textContent = quoteText;
   author.textContent = authorText;
 }
@@ -17702,6 +17702,6 @@ twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetableQuote}`;
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-
+  
 
 },{"date-fns":115}]},{},[226]);

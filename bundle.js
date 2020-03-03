@@ -17626,6 +17626,9 @@ const errorQuote = {
   author: 'Charles Bukowski',
 };
 
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 if (window.localStorage.getItem('dailyquote')) {
   const dailyQuote = JSON.parse(window.localStorage.getItem('dailyquote'));
   if (dailyQuote.date == dayOfYear) {
@@ -17665,7 +17668,6 @@ function setTextToDom(content) {
   quote.textContent = quoteText;
   author.textContent = authorText;
 }
-
 
 /* Pop Up Bar Functionality */
 

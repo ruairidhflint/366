@@ -8,8 +8,8 @@ const errorQuote = {
   author: 'Charles Bukowski',
 };
 
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+/* Spinner */
+const spinner = document.querySelector('.loader');
 
 if (window.localStorage.getItem('dailyquote')) {
   const dailyQuote = JSON.parse(window.localStorage.getItem('dailyquote'));
@@ -34,8 +34,7 @@ function fetchData() {
       });
       window.localStorage.setItem('dailyquote', localStorageData);
     })
-    .catch(error => {
-      console.log(error);
+    .catch(() => {
       setTextToDom(errorQuote);
     });
 }
@@ -47,6 +46,7 @@ function setTextToDom(content) {
   if (quoteText.length > 93) {
     quote.classList.toggle('reduced');
   }
+  spinner.style.display = 'none'
   quote.textContent = quoteText;
   author.textContent = authorText;
 }
@@ -78,3 +78,10 @@ const tweetableQuote =
   author.textContent.replace(/ /g, '%20');
 
 twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetableQuote}`;
+
+/* Correct view height on mobile */
+
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+

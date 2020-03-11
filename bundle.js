@@ -17626,6 +17626,11 @@ const errorQuote = {
   author: 'Charles Bukowski',
 };
 
+let tweetContent = 'Check out daily quotes at https://366-quotes.netlify.com/'.replace(
+  / /g,
+  '%20',
+);
+
 /* Spinner */
 const spinner = document.querySelector('.loader');
 
@@ -17651,6 +17656,11 @@ function fetchData() {
         author: res.author,
       });
       window.localStorage.setItem('dailyquote', localStorageData);
+      tweetContent =
+        res.quote.replace(/ /g, '%20') +
+        ' - ' +
+        res.author.replace(/ /g, '%20');
+      twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
     })
     .catch(() => {
       setTextToDom(errorQuote);
@@ -17690,18 +17700,11 @@ function closeMenu() {
 
 const twitterLink = document.querySelector('#twitter-link');
 
-const tweetableQuote =
-  quote.textContent.replace(/ /g, '%20') +
-  ' - ' +
-  author.textContent.replace(/ /g, '%20');
-
-twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetableQuote}`;
+twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
 
 /* Correct view height on mobile */
 
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-  
 
 },{"date-fns":115}]},{},[226]);

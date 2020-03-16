@@ -13,6 +13,13 @@ let tweetContent = 'Check out daily quotes at https://366-quotes.netlify.com/'.r
   '%20',
 );
 
+/* Twitter */
+
+const twitterLink = document.querySelector('#twitter-link');
+
+twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
+
+
 /* Spinner */
 const spinner = document.querySelector('.loader');
 
@@ -23,7 +30,7 @@ if (window.localStorage.getItem('dailyquote')) {
     tweetContent =
         dailyQuote.quote.replace(/ /g, '%20') +
         ' - ' +
-        dailyQuote.author.replace(/ /g, '%20');
+        dailyQuote.author.replace(/ /g, '%20') + '\n \n (https://366-quotes.netlify.com';
       twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
   } else {
     fetchData();
@@ -46,7 +53,7 @@ function fetchData() {
       tweetContent =
         res.quote.replace(/ /g, '%20') +
         ' - ' +
-        res.author.replace(/ /g, '%20');
+        res.author.replace(/ /g, '%20')+ '\n \n (https://366-quotes.netlify.com';
       twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
     })
     .catch(() => {
@@ -83,11 +90,7 @@ function closeMenu() {
   menuBar.classList.remove('height');
 }
 
-/* Twitter */
 
-const twitterLink = document.querySelector('#twitter-link');
-
-twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
 
 /* Correct view height on mobile */
 

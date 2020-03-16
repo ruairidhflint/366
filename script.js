@@ -20,6 +20,11 @@ if (window.localStorage.getItem('dailyquote')) {
   const dailyQuote = JSON.parse(window.localStorage.getItem('dailyquote'));
   if (dailyQuote.date == dayOfYear) {
     setTextToDom(dailyQuote);
+    tweetContent =
+        dailyQuote.quote.replace(/ /g, '%20') +
+        ' - ' +
+        dailyQuote.author.replace(/ /g, '%20');
+      twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
   } else {
     fetchData();
   }

@@ -17648,7 +17648,7 @@ if (window.localStorage.getItem('dailyquote')) {
     tweetContent =
         dailyQuote.quote.replace(/ /g, '%20') +
         ' - ' +
-        dailyQuote.author.replace(/ /g, '%20') + '\n \n (https://366-quotes.netlify.com';
+        dailyQuote.author.replace(/ /g, '%20') + '\n \n (https://366-quotes.netlify.com)';
       twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
   } else {
     fetchData();
@@ -17671,7 +17671,7 @@ function fetchData() {
       tweetContent =
         res.quote.replace(/ /g, '%20') +
         ' - ' +
-        res.author.replace(/ /g, '%20')+ '\n \n (https://366-quotes.netlify.com';
+        res.author.replace(/ /g, '%20')+ '\n \n (https://366-quotes.netlify.com)';
       twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
     })
     .catch(() => {

@@ -17637,7 +17637,6 @@ const twitterLink = document.querySelector('#twitter-link');
 
 twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
 
-
 /* Spinner */
 const spinner = document.querySelector('.loader');
 
@@ -17646,10 +17645,11 @@ if (window.localStorage.getItem('dailyquote')) {
   if (dailyQuote.date == dayOfYear) {
     setTextToDom(dailyQuote);
     tweetContent =
-        dailyQuote.quote.replace(/ /g, '%20') +
-        ' - ' +
-        dailyQuote.author.replace(/ /g, '%20') + '\n \n (via https://366-quotes.netlify.com)';
-      twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
+      dailyQuote.quote.replace(/ /g, '%20') +
+      ' - ' +
+      dailyQuote.author.replace(/ /g, '%20') +
+      '\n \n (via https://366-quotes.netlify.com)';
+    twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
   } else {
     fetchData();
   }
@@ -17659,8 +17659,8 @@ if (window.localStorage.getItem('dailyquote')) {
 
 function fetchData() {
   fetch(`https://threesixsixquotes.herokuapp.com/quotes/${dayOfYear}`)
-    .then(res => res.json())
-    .then(res => {
+    .then((res) => res.json())
+    .then((res) => {
       setTextToDom(res);
       const localStorageData = JSON.stringify({
         date: dayOfYear,
@@ -17671,7 +17671,8 @@ function fetchData() {
       tweetContent =
         res.quote.replace(/ /g, '%20') +
         ' - ' +
-        res.author.replace(/ /g, '%20')+ '\n \n (https://366-quotes.netlify.com)';
+        res.author.replace(/ /g, '%20') +
+        '\n \n (https://366-quotes.netlify.com)';
       twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
     })
     .catch(() => {
@@ -17707,8 +17708,6 @@ function openMenu() {
 function closeMenu() {
   menuBar.classList.remove('height');
 }
-
-
 
 /* Correct view height on mobile */
 

@@ -30,7 +30,7 @@ if (window.localStorage.getItem('dailyquote')) {
     tweetContent =
         dailyQuote.quote.replace(/ /g, '%20') +
         ' - ' +
-        dailyQuote.author.replace(/ /g, '%20') + '\n \n (https://366-quotes.netlify.com)';
+        dailyQuote.author.replace(/ /g, '%20') + '\n \n (via https://366-quotes.netlify.com)';
       twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
   } else {
     fetchData();

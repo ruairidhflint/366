@@ -4,8 +4,8 @@
 */
 
 /*
-Colors:
 
+Colors:
 darkBG: #121212
 darkText: #b1b1b1
 selection: #cc8521
@@ -23,6 +23,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 :root {
     font-size: 67.5%;
+    --darkBG: #121212;
+    --darkText: #b1b1b1;
+    --selection: #cc8521;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -59,8 +62,8 @@ table {
 body {
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
-    background-color: #121212;
-} 
+    background-color: var(--darkBG);
+}
 
 .container {
     width: 95%;
@@ -69,7 +72,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #b1b1b1
+    color: var(--darkText);
 }
 
 h1 {
@@ -79,7 +82,7 @@ h1 {
 }
 
 h1::selection {
-    color: #cc8521;
+    color: var(--selection);
 }
 
 h3 {
@@ -89,7 +92,7 @@ h3 {
 }
 
 h3::selection {
-    color: #cc8521;
+    color: var(--selection);
 }
 
 .reduced {
@@ -102,7 +105,6 @@ h3::selection {
         font-size: 10vw;
         line-height: 11vw;
     }
-
     h3 {
         font-size: 4vw;
     }
@@ -111,7 +113,7 @@ h3::selection {
 .menu-button {
     height: 5%;
     width: 100%;
-    color: #b1b1b1;
+    color: var(--darkText);
     display: flex;
     justify-content: flex-end;
     ;
@@ -124,7 +126,7 @@ h6 {
 }
 
 h6:hover {
-    color: #cc8521;
+    color: var(--selection);
 }
 
 .popup-bar {
@@ -150,13 +152,13 @@ h6:hover {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #121212;
+    color: var(--darkBG);
     transition: color 0.2s ease-in-out;
     font-family: 'Quicksand';
 }
 
 #twitter-link:hover {
-    color: #cc8521;
+    color: var(--selection);
     transition: color 0.2s ease-in-out;
 }
 
@@ -223,30 +225,32 @@ a {
     height: 11em;
     border-radius: 50%;
     background: #b1b1b1;
-    background: -moz-linear-gradient(left, #b1b1b1 10%, rgba(255, 255, 255, 0) 42%);
-    background: -webkit-linear-gradient(left, #b1b1b1 10%, rgba(255, 255, 255, 0) 42%);
-    background: -o-linear-gradient(left, #b1b1b1 10%, rgba(255, 255, 255, 0) 42%);
-    background: -ms-linear-gradient(left, #b1b1b1 10%, rgba(255, 255, 255, 0) 42%);
-    background: linear-gradient(to right, #b1b1b1 10%, rgba(255, 255, 255, 0) 42%);
+    background: -moz-linear-gradient(left, var(--darkText) 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, var(--darkText) 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, var(--darkText) 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, var(--darkText) 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, var(--darkText) 10%, rgba(255, 255, 255, 0) 42%);
     position: relative;
     -webkit-animation: load3 1.4s infinite linear;
     animation: load3 1.4s infinite linear;
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
-  }
-  .loader:before {
+}
+
+.loader:before {
     width: 50%;
     height: 50%;
-    background: #b1b1b1;
+    background: var(--darkText);
     border-radius: 100% 0 0 0;
     position: absolute;
     top: 0;
     left: 0;
     content: '';
-  }
-  .loader:after {
-    background: #121212;
+}
+
+.loader:after {
+    background: var(--darkBG);
     width: 75%;
     height: 75%;
     border-radius: 50%;
@@ -257,24 +261,26 @@ a {
     left: 0;
     bottom: 0;
     right: 0;
-  }
-  @-webkit-keyframes load3 {
+}
+
+@-webkit-keyframes load3 {
     0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  @keyframes load3 {
+}
+
+@keyframes load3 {
     0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}

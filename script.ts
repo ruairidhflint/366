@@ -62,7 +62,7 @@ function fetchData() {
     });
 }
 
-function setTextToDom(content) {
+function setTextToDom(content: {quote: string, author: string}) {
   const quoteText = content.quote;
   const authorText = content.author;
 

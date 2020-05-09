@@ -9,7 +9,8 @@
   "author": "Rory Flint",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^2.10.0"
+    "date-fns": "^2.10.0",
+    "systemjs": "^6.3.1"
   },
   "devDependencies": {
     "jest": "^25.3.0"

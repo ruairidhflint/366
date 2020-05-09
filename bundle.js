@@ -17616,102 +17616,87 @@ function toDate(argument) {
 
 module.exports = exports.default;
 },{"../_lib/requiredArgs/index.js":14}],226:[function(require,module,exports){
-const datefns = require('date-fns');
-const quote = document.querySelector('h1');
-const author = document.querySelector('h3');
-const today = new Date();
-const dayOfYear = datefns.getDayOfYear(today);
-const errorQuote = {
-  quote: 'Find what you love and let it kill you.',
-  author: 'Charles Bukowski',
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var date_fns_1 = require("date-fns");
+var quote = document.querySelector('h1');
+var author = document.querySelector('h3');
+var today = new Date();
+var dayOfYear = date_fns_1.getDayOfYear(today);
+var errorQuote = {
+    quote: 'Find what you love and let it kill you.',
+    author: 'Charles Bukowski',
 };
-
-let tweetContent = 'Check out daily quotes at https://366-quotes.netlify.com/'.replace(
-  / /g,
-  '%20',
-);
-
+var tweetContent = 'Check out daily quotes at https://366-quotes.netlify.com/'.replace(/ /g, '%20');
 /* Twitter */
-
-const twitterLink = document.querySelector('#twitter-link');
-
-twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
-
+var twitterLink = document.querySelector('#twitter-link');
+twitterLink.href = "https://twitter.com/intent/tweet?text=" + tweetContent;
 /* Spinner */
-const spinner = document.querySelector('.loader');
-
+var spinner = document.querySelector('.loader');
 if (window.localStorage.getItem('dailyquote')) {
-  const dailyQuote = JSON.parse(window.localStorage.getItem('dailyquote'));
-  if (dailyQuote.date == dayOfYear) {
-    setTextToDom(dailyQuote);
-    tweetContent =
-      dailyQuote.quote.replace(/ /g, '%20') +
-      ' - ' +
-      dailyQuote.author.replace(/ /g, '%20') +
-      '\n \n (via https://366-quotes.netlify.com)';
-    twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
-  } else {
-    fetchData();
-  }
-} else {
-  fetchData();
+    var dailyQuote = JSON.parse(window.localStorage.getItem('dailyquote'));
+    if (dailyQuote.date == dayOfYear) {
+        setTextToDom(dailyQuote);
+        tweetContent =
+            dailyQuote.quote.replace(/ /g, '%20') +
+                ' - ' +
+                dailyQuote.author.replace(/ /g, '%20') +
+                '\n \n (via https://366-quotes.netlify.com)';
+        twitterLink.href = "https://twitter.com/intent/tweet?text=" + tweetContent;
+    }
+    else {
+        fetchData();
+    }
 }
-
+else {
+    fetchData();
+}
 function fetchData() {
-  fetch(`https://threesixsixquotes.herokuapp.com/quotes/${dayOfYear}`)
-    .then((res) => res.json())
-    .then((res) => {
-      setTextToDom(res);
-      const localStorageData = JSON.stringify({
-        date: dayOfYear,
-        quote: res.quote,
-        author: res.author,
-      });
-      window.localStorage.setItem('dailyquote', localStorageData);
-      tweetContent =
-        res.quote.replace(/ /g, '%20') +
-        ' - ' +
-        res.author.replace(/ /g, '%20') +
-        '\n \n (https://366-quotes.netlify.com)';
-      twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
+    fetch("https://threesixsixquotes.herokuapp.com/quotes/" + dayOfYear)
+        .then(function (res) { return res.json(); })
+        .then(function (res) {
+        setTextToDom(res);
+        var localStorageData = JSON.stringify({
+            date: dayOfYear,
+            quote: res.quote,
+            author: res.author,
+        });
+        window.localStorage.setItem('dailyquote', localStorageData);
+        tweetContent =
+            res.quote.replace(/ /g, '%20') +
+                ' - ' +
+                res.author.replace(/ /g, '%20') +
+                '\n \n (https://366-quotes.netlify.com)';
+        twitterLink.href = "https://twitter.com/intent/tweet?text=" + tweetContent;
     })
-    .catch(() => {
-      setTextToDom(errorQuote);
+        .catch(function () {
+        setTextToDom(errorQuote);
     });
 }
-
 function setTextToDom(content) {
-  const quoteText = content.quote;
-  const authorText = content.author;
-
-  if (quoteText.length > 93) {
-    quote.classList.toggle('reduced');
-  }
-  spinner.style.display = 'none';
-  quote.textContent = quoteText;
-  author.textContent = authorText;
+    var quoteText = content.quote;
+    var authorText = content.author;
+    if (quoteText.length > 93) {
+        quote.classList.toggle('reduced');
+    }
+    spinner.style.display = 'none';
+    quote.textContent = quoteText;
+    author.textContent = authorText;
 }
-
 /* Pop Up Bar Functionality */
-
-const button = document.querySelector('h6');
-const menuBar = document.querySelector('.popup-bar');
-const container = document.querySelector('.container');
-
+var button = document.querySelector('h6');
+var menuBar = document.querySelector('.popup-bar');
+var container = document.querySelector('.container');
 button.addEventListener('click', openMenu);
 container.addEventListener('click', closeMenu);
-
 function openMenu() {
-  menuBar.classList.add('height');
+    menuBar.classList.add('height');
 }
-
 function closeMenu() {
-  menuBar.classList.remove('height');
+    menuBar.classList.remove('height');
 }
-
 /* Correct view height on mobile */
-
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+var vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', vh + "px");
 
 },{"date-fns":115}]},{},[226]);

@@ -7,7 +7,7 @@ Fast forward to 2020, it's a big year in my life: buying my first home, getting 
 I started to write in React, then I wanted to play with Vue, I wanted to use Django for some odd bits, Python for some automation, lots of different ideas presented themselves to me. 
 Late one night I watched Jiro Dreams of Sushi (highly recommended). There is an excellent segment where Jiro, the master Sushi chef, talks about how he has experimented with everything; extravagance, expensive and extraordinary...but in the end he realised sometimes simplicity is key. Strip everything away and use what is pure. It's not always the right choice, but sometimes it is good to go back to your roots and make use of core elements to the best of your ability. 
 
-The end result is a  single page of HTML, a few lines of plain CSS and some vanilla Javascript. No frameworks, nothing unusual, and nothing complicated. Minimal API calls (maximum one per day), minimal bundle size, minimal visual distraction and minimal features.
+The end result is a  single page of HTML, a few lines of plain CSS and some simple Typescript. No frameworks, nothing unusual, and nothing complicated. Minimal API calls (maximum one per day), minimal bundle size, minimal visual distraction and minimal features.
 
 A new day dawns, a new quote presents itself. Nothing more.
 

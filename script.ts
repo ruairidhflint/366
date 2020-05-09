@@ -1,14 +1,14 @@
-import { getDayOfYear } from 'date-fns'
+import { getDayOfYear } from 'date-fns';
 const quote = <HTMLElement>document.querySelector('h1');
 const author = <HTMLElement>document.querySelector('h3');
 const today = new Date();
-const dayOfYear = getDayOfYear(today);
-const errorQuote = {
+const dayOfYear: number = getDayOfYear(today);
+const errorQuote: {quote: string, author: string} = {
   quote: 'Find what you love and let it kill you.',
   author: 'Charles Bukowski',
 };
 
-let tweetContent = 'Check out daily quotes at https://366-quotes.netlify.com/'.replace(
+let tweetContent: string = 'Check out daily quotes at https://366-quotes.netlify.com/'.replace(
   / /g,
   '%20',
 );
@@ -39,7 +39,7 @@ if (window.localStorage.getItem('dailyquote')) {
   fetchData();
 }
 
-function fetchData() {
+function fetchData(): void {
   fetch(`https://threesixsixquotes.herokuapp.com/quotes/${dayOfYear}`)
     .then((res) => res.json())
     .then((res) => {
@@ -62,7 +62,7 @@ function fetchData() {
     });
 }
 
-function setTextToDom(content: {quote: string, author: string}) {
+function setTextToDom(content: { quote: string; author: string }): void {
   const quoteText = content.quote;
   const authorText = content.author;
 
@@ -76,22 +76,22 @@ function setTextToDom(content: {quote: string, author: string}) {
 
 /* Pop Up Bar Functionality */
 
-const button = document.querySelector('h6');
-const menuBar = document.querySelector('.popup-bar');
-const container = document.querySelector('.container');
+const button = <HTMLElement>document.querySelector('h6');
+const menuBar = <HTMLElement>document.querySelector('.popup-bar');
+const container = <HTMLElement>document.querySelector('.container');
 
 button.addEventListener('click', openMenu);
 container.addEventListener('click', closeMenu);
 
-function openMenu() {
+function openMenu(): void {
   menuBar.classList.add('height');
 }
 
-function closeMenu() {
+function closeMenu(): void {
   menuBar.classList.remove('height');
 }
 
 /* Correct view height on mobile */
 
-let vh = window.innerHeight * 0.01;
+let vh: number = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);

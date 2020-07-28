@@ -1,9 +1,5 @@
 import { getDayOfYear } from 'date-fns';
-import firebase from 'firebase';
-import config from './firebaseConfig';
-
-firebase.initializeApp(config);
-const db = firebase.firestore();
+import db from './firebase';
 
 const quote = document.querySelector('h1');
 const author = document.querySelector('h3');

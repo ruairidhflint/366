@@ -91,15 +91,9 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(226);
-/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _firebaseConfig__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(246);
-/* harmony import */ var _firebaseConfig__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_firebaseConfig__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _firebase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(226);
 
 
-
-firebase__WEBPACK_IMPORTED_MODULE_1___default.a.initializeApp(_firebaseConfig__WEBPACK_IMPORTED_MODULE_2___default.a);
-const db = firebase__WEBPACK_IMPORTED_MODULE_1___default.a.firestore();
 const quote = document.querySelector('h1');
 const author = document.querySelector('h3');
 const today = new Date();
@@ -182,7 +176,7 @@ let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 function testFirebase(today) {
-  db.collection('quotes').where('dayOfYear', '==', today).get().then(snapshot => {
+  _firebase__WEBPACK_IMPORTED_MODULE_1__["default"].collection('quotes').where('dayOfYear', '==', today).get().then(snapshot => {
     snapshot.docs.forEach(doc => {
       console.log(doc.data());
     });
@@ -16160,6 +16154,28 @@ var minTime = -maxTime;
 
 /***/ }),
 /* 226 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(227);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_0__);
+
+const config = {
+  apiKey: "AIzaSyC0ZIzs4FdUyWVZFOEOJwCZN1zEy_1wYwI",
+  authDomain: "backend-36356.firebaseapp.com",
+  databaseURL: "https://backend-36356.firebaseio.com",
+  projectId: 'backend-36356',
+  storageBucket: 'backend-36356.appspot.com',
+  messagingSenderId: '724136616956',
+  appId: '1:724136616956:web:440ea1c5859fd568e1c879',
+  measurementId: 'G-2ZML52PWLY'
+};
+firebase__WEBPACK_IMPORTED_MODULE_0___default.a.initializeApp(config);
+/* harmony default export */ __webpack_exports__["default"] = (firebase__WEBPACK_IMPORTED_MODULE_0___default.a.firestore());
+
+/***/ }),
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16167,16 +16183,16 @@ var minTime = -maxTime;
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var firebase = _interopDefault(__webpack_require__(227));
-__webpack_require__(233);
+var firebase = _interopDefault(__webpack_require__(228));
 __webpack_require__(234);
-__webpack_require__(236);
-__webpack_require__(238);
+__webpack_require__(235);
+__webpack_require__(237);
 __webpack_require__(239);
-__webpack_require__(242);
+__webpack_require__(240);
 __webpack_require__(243);
 __webpack_require__(244);
 __webpack_require__(245);
+__webpack_require__(246);
 
 var name = "firebase";
 var version = "7.17.1";
@@ -16226,7 +16242,7 @@ module.exports = firebase;
 
 
 /***/ }),
-/* 227 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16234,10 +16250,10 @@ module.exports = firebase;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var tslib = __webpack_require__(228);
-var util = __webpack_require__(229);
-var component = __webpack_require__(231);
-var logger$1 = __webpack_require__(232);
+var tslib = __webpack_require__(229);
+var util = __webpack_require__(230);
+var component = __webpack_require__(232);
+var logger$1 = __webpack_require__(233);
 
 /**
  * @license
@@ -16907,7 +16923,7 @@ exports.firebase = firebase$1;
 
 
 /***/ }),
-/* 228 */
+/* 229 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17156,7 +17172,7 @@ function __classPrivateFieldSet(receiver, privateMap, value) {
 
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17164,7 +17180,7 @@ function __classPrivateFieldSet(receiver, privateMap, value) {
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var tslib = __webpack_require__(228);
+var tslib = __webpack_require__(229);
 
 /**
  * @license
@@ -18870,10 +18886,10 @@ exports.validateIndexedDBOpenable = validateIndexedDBOpenable;
 exports.validateNamespace = validateNamespace;
 //# sourceMappingURL=index.cjs.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(230)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(231)))
 
 /***/ }),
-/* 230 */
+/* 231 */
 /***/ (function(module, exports) {
 
 var g;
@@ -18899,7 +18915,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 231 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18907,8 +18923,8 @@ module.exports = g;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var tslib = __webpack_require__(228);
-var util = __webpack_require__(229);
+var tslib = __webpack_require__(229);
+var util = __webpack_require__(230);
 
 /**
  * Component for service name T, e.g. `auth`, `auth-internal`
@@ -19221,7 +19237,7 @@ exports.Provider = Provider;
 
 
 /***/ }),
-/* 232 */
+/* 233 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19520,10 +19536,10 @@ function setUserLogHandler(logCallback, options) {
 
 
 /***/ }),
-/* 233 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {(function() {var firebase = __webpack_require__(227).default;/*
+/* WEBPACK VAR INJECTION */(function(global) {(function() {var firebase = __webpack_require__(228).default;/*
 
  Copyright The Closure Library Authors.
  SPDX-License-Identifier: Apache-2.0
@@ -19957,10 +19973,10 @@ instanceFactory:function(b){b=b.getProvider("auth").getImmediate();return{getUid
 
 //# sourceMappingURL=auth.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(230)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(231)))
 
 /***/ }),
-/* 234 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19970,11 +19986,11 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var firebase = _interopDefault(__webpack_require__(227));
-var tslib = __webpack_require__(228);
-var util = __webpack_require__(229);
-var logger$1 = __webpack_require__(232);
-var component = __webpack_require__(231);
+var firebase = _interopDefault(__webpack_require__(228));
+var tslib = __webpack_require__(229);
+var util = __webpack_require__(230);
+var logger$1 = __webpack_require__(233);
+var component = __webpack_require__(232);
 
 /**
  * @license
@@ -35364,10 +35380,10 @@ exports.enableLogging = enableLogging;
 exports.registerDatabase = registerDatabase;
 //# sourceMappingURL=index.cjs.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(235)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(236)))
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -35557,7 +35573,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35567,7 +35583,7 @@ Object.defineProperty(exports, "__esModule", {
     value: !0
 });
 
-var t, e = __webpack_require__(228), n = (t = __webpack_require__(227)) && "object" == typeof t && "default" in t ? t.default : t, r = __webpack_require__(232), i = __webpack_require__(229), o = __webpack_require__(237), s = __webpack_require__(231), u = new r.Logger("@firebase/firestore");
+var t, e = __webpack_require__(229), n = (t = __webpack_require__(228)) && "object" == typeof t && "default" in t ? t.default : t, r = __webpack_require__(233), i = __webpack_require__(230), o = __webpack_require__(238), s = __webpack_require__(232), u = new r.Logger("@firebase/firestore");
 
 // Helper methods are needed because variables can't be exported as read/write
 function a() {
@@ -50977,10 +50993,10 @@ var eu = {
 nu(n), exports.__PRIVATE_registerFirestore = nu;
 //# sourceMappingURL=index.cjs.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(235)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(236)))
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52302,10 +52318,10 @@ var esm_5 = esm.XhrIo;
 
 //# sourceMappingURL=index.esm.js.map
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(230)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(231)))
 
 /***/ }),
-/* 238 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52313,9 +52329,9 @@ var esm_5 = esm.XhrIo;
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var firebase = _interopDefault(__webpack_require__(227));
-var tslib = __webpack_require__(228);
-var component = __webpack_require__(231);
+var firebase = _interopDefault(__webpack_require__(228));
+var tslib = __webpack_require__(229);
+var component = __webpack_require__(232);
 
 /**
  * @license
@@ -52956,20 +52972,20 @@ firebase.registerVersion(name, version);
 
 
 /***/ }),
-/* 239 */
+/* 240 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(227);
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(228);
 /* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_app__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _firebase_installations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(240);
-/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(231);
+/* harmony import */ var _firebase_installations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(241);
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(232);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(228);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(229);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(229);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(230);
 /* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_firebase_util__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(241);
+/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(242);
 /* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(idb__WEBPACK_IMPORTED_MODULE_5__);
 
 
@@ -54574,20 +54590,20 @@ function isSWControllerSupported() {
 
 
 /***/ }),
-/* 240 */
+/* 241 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerInstallations", function() { return registerInstallations; });
-/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(227);
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(228);
 /* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_app__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(231);
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(232);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(228);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(229);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(229);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(230);
 /* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_firebase_util__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(241);
+/* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(242);
 /* harmony import */ var idb__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(idb__WEBPACK_IMPORTED_MODULE_4__);
 
 
@@ -55920,7 +55936,7 @@ registerInstallations(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 
 /***/ }),
-/* 241 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -56241,16 +56257,16 @@ registerInstallations(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 
 /***/ }),
-/* 242 */
+/* 243 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerStorage", function() { return registerStorage; });
-/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(227);
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(228);
 /* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_app__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(228);
-/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(231);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(229);
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(232);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_2__);
 
 
@@ -59753,7 +59769,7 @@ registerStorage(_firebase_app__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 
 /***/ }),
-/* 243 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59763,12 +59779,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var firebase = _interopDefault(__webpack_require__(227));
-__webpack_require__(240);
-var tslib = __webpack_require__(228);
-var util = __webpack_require__(229);
-var logger$1 = __webpack_require__(232);
-var component = __webpack_require__(231);
+var firebase = _interopDefault(__webpack_require__(228));
+__webpack_require__(241);
+var tslib = __webpack_require__(229);
+var util = __webpack_require__(230);
+var logger$1 = __webpack_require__(233);
+var component = __webpack_require__(232);
 
 var name = "@firebase/performance";
 var version = "0.3.10";
@@ -61173,7 +61189,7 @@ exports.registerPerformance = registerPerformance;
 
 
 /***/ }),
-/* 244 */
+/* 245 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61183,14 +61199,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerAnalytics", function() { return registerAnalytics; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetGlobalVars", function() { return resetGlobalVars; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "settings", function() { return settings; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(228);
-/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(227);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(229);
+/* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(228);
 /* harmony import */ var _firebase_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_firebase_app__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _firebase_installations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(240);
-/* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(232);
-/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(229);
+/* harmony import */ var _firebase_installations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(241);
+/* harmony import */ var _firebase_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(233);
+/* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(230);
 /* harmony import */ var _firebase_util__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_firebase_util__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(231);
+/* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(232);
 /* harmony import */ var _firebase_component__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_firebase_component__WEBPACK_IMPORTED_MODULE_5__);
 
 
@@ -61817,7 +61833,7 @@ function isSupported() {
 
 
 /***/ }),
-/* 245 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61827,12 +61843,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var firebase = _interopDefault(__webpack_require__(227));
-__webpack_require__(240);
-var tslib = __webpack_require__(228);
-var util = __webpack_require__(229);
-var logger = __webpack_require__(232);
-var component = __webpack_require__(231);
+var firebase = _interopDefault(__webpack_require__(228));
+__webpack_require__(241);
+var tslib = __webpack_require__(229);
+var util = __webpack_require__(230);
+var logger = __webpack_require__(233);
+var component = __webpack_require__(232);
 
 /**
  * @license
@@ -63057,21 +63073,6 @@ registerRemoteConfig(firebase);
 exports.registerRemoteConfig = registerRemoteConfig;
 //# sourceMappingURL=index.cjs.js.map
 
-
-/***/ }),
-/* 246 */
-/***/ (function(module, exports) {
-
-module.exports = {
-  apiKey: "AIzaSyC0ZIzs4FdUyWVZFOEOJwCZN1zEy_1wYwI",
-  authDomain: "backend-36356.firebaseapp.com",
-  databaseURL: "https://backend-36356.firebaseio.com",
-  projectId: 'backend-36356',
-  storageBucket: 'backend-36356.appspot.com',
-  messagingSenderId: '724136616956',
-  appId: '1:724136616956:web:440ea1c5859fd568e1c879',
-  measurementId: 'G-2ZML52PWLY'
-};
 
 /***/ })
 /******/ ]);

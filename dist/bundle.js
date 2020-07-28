@@ -181,15 +181,15 @@ function closeMenu() {
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-function testFirebase() {
-  db.collection('quotes').get().then(snapshot => {
+function testFirebase(today) {
+  db.collection('quotes').where('dayOfYear', '==', today).get().then(snapshot => {
     snapshot.docs.forEach(doc => {
       console.log(doc.data());
     });
   });
 }
 
-testFirebase();
+testFirebase(dayOfYear);
 
 /***/ }),
 /* 1 */

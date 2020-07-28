@@ -102,8 +102,9 @@ function closeMenu() {
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-function testFirebase() {
+function testFirebase(today) {
   db.collection('quotes')
+    .where('dayOfYear', '==', today)
     .get()
     .then((snapshot) => {
       snapshot.docs.forEach((doc) => {
@@ -112,4 +113,4 @@ function testFirebase() {
     });
 }
 
-testFirebase();
+testFirebase(dayOfYear);

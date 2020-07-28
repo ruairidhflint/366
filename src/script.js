@@ -1,5 +1,10 @@
 import { getDayOfYear } from 'date-fns';
-import fb from './firebaseConfig';
+import firebase from 'firebase';
+import config from './firebaseConfig';
+
+firebase.initializeApp(config);
+const db = firebase.firestore();
+
 const quote = document.querySelector('h1');
 const author = document.querySelector('h3');
 const today = new Date();
@@ -96,3 +101,15 @@ function closeMenu() {
 
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+function testFirebase() {
+  db.collection('quotes')
+    .get()
+    .then((snapshot) => {
+      snapshot.docs.forEach((doc) => {
+        console.log(doc.data());
+      });
+    });
+}
+
+testFirebase();

@@ -1,6 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var date_fns_1 = require("date-fns");
+var dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 var quote = document.querySelector('h1');
 var author = document.querySelector('h3');
 var today = new Date();
@@ -80,3 +85,4 @@ function closeMenu() {
 /* Correct view height on mobile */
 var vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', vh + "px");
+console.log(dotenv_1.default);

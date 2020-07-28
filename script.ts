@@ -1,9 +1,11 @@
 import { getDayOfYear } from 'date-fns';
+import dotenv from 'dotenv';
+dotenv.config();
 const quote = <HTMLElement>document.querySelector('h1');
 const author = <HTMLElement>document.querySelector('h3');
 const today = new Date();
 const dayOfYear: number = getDayOfYear(today);
-const errorQuote: {quote: string, author: string} = {
+const errorQuote: { quote: string; author: string } = {
   quote: 'Find what you love and let it kill you.',
   author: 'Charles Bukowski',
 };

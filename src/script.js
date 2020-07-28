@@ -42,22 +42,14 @@ if (window.localStorage.getItem('dailyquote')) {
 }
 
 function fetchData() {
-  fetch(`https://threesixsixquotes.herokuapp.com/quotes/${dayOfYear}`)
-    .then((res) => res.json())
-    .then((res) => {
-      setTextToDom(res);
-      const localStorageData = JSON.stringify({
-        date: dayOfYear,
-        quote: res.quote,
-        author: res.author,
+  db.collection('quotes')
+    .where('dayOfYear', '==', today)
+    .get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        const res = doc.data();
+        setTextToDom(res);
       });
-      window.localStorage.setItem('dailyquote', localStorageData);
-      tweetContent =
-        res.quote.replace(/ /g, '%20') +
-        ' - ' +
-        res.author.replace(/ /g, '%20') +
-        '\n \n (https://366-quotes.netlify.com)';
-      twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
     })
     .catch(() => {
       setTextToDom(errorQuote);
@@ -74,6 +66,10 @@ function setTextToDom(content) {
   spinner.style.display = 'none';
   quote.textContent = quoteText;
   author.textContent = authorText;
+}
+
+function setLocalStorage(quote){
+  
 }
 
 /* Pop Up Bar Functionality */
@@ -98,15 +94,3 @@ function closeMenu() {
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-function testFirebase(today) {
-  db.collection('quotes')
-    .where('dayOfYear', '==', today)
-    .get()
-    .then((snapshot) => {
-      snapshot.docs.forEach((doc) => {
-        console.log(doc.data());
-      });
-    });
-}
-
-testFirebase(dayOfYear);

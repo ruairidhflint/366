@@ -1,28 +1,27 @@
 import { getDayOfYear } from 'date-fns';
-import dotenv from 'dotenv';
-dotenv.config();
-const quote = <HTMLElement>document.querySelector('h1');
-const author = <HTMLElement>document.querySelector('h3');
+import fb from './firebaseConfig';
+const quote = document.querySelector('h1');
+const author = document.querySelector('h3');
 const today = new Date();
-const dayOfYear: number = getDayOfYear(today);
-const errorQuote: { quote: string; author: string } = {
+const dayOfYear = getDayOfYear(today);
+const errorQuote = {
   quote: 'Find what you love and let it kill you.',
   author: 'Charles Bukowski',
 };
 
-let tweetContent: string = 'Check out daily quotes at https://366-quotes.netlify.com/'.replace(
+let tweetContent = 'Check out daily quotes at https://366-quotes.netlify.com/'.replace(
   / /g,
   '%20',
 );
 
 /* Twitter */
 
-const twitterLink = <HTMLAnchorElement>document.querySelector('#twitter-link');
+const twitterLink = document.querySelector('#twitter-link');
 
 twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
 
 /* Spinner */
-const spinner = <HTMLElement>document.querySelector('.loader');
+const spinner = document.querySelector('.loader');
 
 if (window.localStorage.getItem('dailyquote')) {
   const dailyQuote = JSON.parse(window.localStorage.getItem('dailyquote'));
@@ -41,7 +40,7 @@ if (window.localStorage.getItem('dailyquote')) {
   fetchData();
 }
 
-function fetchData(): void {
+function fetchData() {
   fetch(`https://threesixsixquotes.herokuapp.com/quotes/${dayOfYear}`)
     .then((res) => res.json())
     .then((res) => {
@@ -64,7 +63,7 @@ function fetchData(): void {
     });
 }
 
-function setTextToDom(content: { quote: string; author: string }): void {
+function setTextToDom(content) {
   const quoteText = content.quote;
   const authorText = content.author;
 
@@ -78,22 +77,22 @@ function setTextToDom(content: { quote: string; author: string }): void {
 
 /* Pop Up Bar Functionality */
 
-const button = <HTMLElement>document.querySelector('h6');
-const menuBar = <HTMLElement>document.querySelector('.popup-bar');
-const container = <HTMLElement>document.querySelector('.container');
+const button = document.querySelector('h6');
+const menuBar = document.querySelector('.popup-bar');
+const container = document.querySelector('.container');
 
 button.addEventListener('click', openMenu);
 container.addEventListener('click', closeMenu);
 
-function openMenu(): void {
+function openMenu() {
   menuBar.classList.add('height');
 }
 
-function closeMenu(): void {
+function closeMenu() {
   menuBar.classList.remove('height');
 }
 
 /* Correct view height on mobile */
 
-let vh: number = window.innerHeight * 0.01;
+let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);

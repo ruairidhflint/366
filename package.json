@@ -4,6 +4,7 @@
   "description": "A daily quote to think on.",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "test": "jest"
   },
   "author": "Rory Flint",

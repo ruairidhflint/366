@@ -1,7 +1,7 @@
 module.exports = {
-  apiKey: 'AIzaSyC0ZIzs4FdUyWVZFOEOJwCZN1zEy_1wYwI',
-  authDomain: 'backend-36356.firebaseapp.com',
-  databaseURL: 'https://backend-36356.firebaseio.com',
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
   projectId: 'backend-36356',
   storageBucket: 'backend-36356.appspot.com',
   messagingSenderId: '724136616956',

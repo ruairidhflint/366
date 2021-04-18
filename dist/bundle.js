@@ -142,7 +142,7 @@ function setTwitterData(quote) {
 /* Slide Up Menu  */
 
 
-const button = document.querySelector('h6');
+const button = document.querySelector('h3');
 const menuBar = document.querySelector('.popup-bar');
 const container = document.querySelector('.container');
 button.addEventListener('click', openMenu);

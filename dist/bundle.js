@@ -95,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const quote = document.querySelector('h1');
-const author = document.querySelector('h3');
+const author = document.querySelector('h2');
 const twitterLink = document.querySelector('#twitter-link');
 const spinner = document.querySelector('.loader');
 /* Correct view height on mobile */

@@ -2,7 +2,7 @@ import { getDayOfYear } from 'date-fns';
 import db from './firebase';
 
 const quote = document.querySelector('h1');
-const author = document.querySelector('h3');
+const author = document.querySelector('h2');
 const twitterLink = document.querySelector('#twitter-link');
 const spinner = document.querySelector('.loader');
 
@@ -15,10 +15,7 @@ const errorQuote = {
   quote: 'Find what you love and let it kill you.',
   author: 'Charles Bukowski',
 };
-let tweetContent = 'Check out daily quotes at https://366-quotes.netlify.com/'.replace(
-  / /g,
-  '%20',
-);
+let tweetContent = 'Check out daily quotes at https://366-quotes.netlify.com/'.replace(/ /g, '%20');
 
 twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
 
@@ -51,10 +48,7 @@ function setTextToDom(content) {
 }
 
 function setTwitterData(quote) {
-  tweetContent =
-    quote.quote.replace(/ /g, '%20') +
-    ' - ' +
-    quote.author.replace(/ /g, '%20');
+  tweetContent = quote.quote.replace(/ /g, '%20') + ' - ' + quote.author.replace(/ /g, '%20');
   twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetContent}`;
 }
 

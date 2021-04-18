@@ -87,7 +87,7 @@ h1::selection {
 
 h2 {
     font-size: 3vw;
-    font-family: 'Quicksand';
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin-top: 2rem;
 }
 

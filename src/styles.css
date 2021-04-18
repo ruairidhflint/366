@@ -85,13 +85,13 @@ h1::selection {
     color: var(--selection);
 }
 
-h3 {
+h2 {
     font-size: 3vw;
     font-family: 'Quicksand';
     margin-top: 2rem;
 }
 
-h3::selection {
+h2::selection {
     color: var(--selection);
 }
 
@@ -105,7 +105,7 @@ h3::selection {
         font-size: 10vw;
         line-height: 11vw;
     }
-    h3 {
+    h2 {
         font-size: 4vw;
     }
 }
@@ -119,13 +119,13 @@ h3::selection {
     ;
 }
 
-h6 {
+h3 {
     margin-right: 3rem;
     font-size: 1.5em;
     cursor: pointer;
 }
 
-h6:hover {
+h3:hover {
     color: var(--selection);
 }
 
